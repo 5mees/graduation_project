@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Fair</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eee;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav {
+            background-color: white;
+            padding: 5px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .gess-logo {
+            display: flex;
+        }
+
+        .gess {
+            border-radius: 7px;
+        }
+
+        .divider {
+            width: 50px;
+        }
+
+        .career {
+            display: flex;
+        }
+
+        /* .content{
+             /* background-color: #EEE; 
+        } */
+        .career-title {
+            align-self: center;
+            margin-left: 10px;
+        }
+
+        .gess-title {
+            align-self: center;
+            margin-left: 10px;
+        }
+
+        .grad-header {
+            margin: 30vh 0px 0px 150px;
+            font-size: 40px;
+        }
+
+        /* .content {
+            margin: 50px 20px;
+        } */
+        .main {
+            background-image: url("{%static 'images/total_station.jpg'%}");
+            background-size: cover;
+            display: inline-block;
+            width: 100%;
+            height: 90vh;
+            margin-bottom: 40px;
+        }
+        .grad-loop{
+            margin-top: 100px;margin-left: 100px;
+        }
+
+        .emb {
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        @media screen and (max-width: 550px) {
+            .gess {
+                width: 40px;
+                height: 40px;
+            }
+
+            .career-img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .gess-title {
+                font-size: 10px;
+            }
+
+            .career-title {
+                font-size: 10px;
+            }
+
+            .nav {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .main {
+                height: 25vh;
+                background-position: center;
+                margin-bottom: 30px;
+            }
+
+            .grad-header {
+                font-size: 12px;
+                margin-top: 60px;
+                margin-left: 20px;
+            }
+            .grad-loop{
+                margin-top: 20px;
+                margin-left: 20px;
+            }
+            .emb{
+                width: 80%;
+                height: 100px;
+            }
+            .grad-h3{
+                font-size: 12px;
+            }
+            .grad-p{
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="gess-logo" style="display: flex;">
+            <img class="gess" src="{% static 'images/gess.jpg' %}" width="75px">
+            <h3 class="gess-title">Geomagics Engineering Students Society</h3>
+        </div>
+        <div class="divider"></div>
+        <div class="career">
+            <img class="career-img" src="{% static 'images/career.png' %}" width="80px">
+            <h3 class="career-title">Career Fair</h3>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="main">
+            <h2 class="grad-header">Graduation Projects</h2>
+        </div>
+        {% for grad in graduate %}
+        <div class="grad-loop">
+            <h3 class="grad-h3">{{grad.title}}</h3>
+            <p class="grad-p">{{grad.description}}</p>
+            <embed class="emb" src="http://127.0.0.1:8000/media/Total_station.pdf" width="800" height="500">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
